@@ -1,0 +1,964 @@
+/* Шрифты */
+@font-face {
+    font-family: 'Brushes';
+    src: url("../fonts/brushes.woff2"), url("../fonts/brushes.woff");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/roboto-slab-thin.woff2"), url("../fonts/roboto-slab-thin.woff");
+    font-weight: 100;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/roboto-slab-light.woff2"), url("../fonts/roboto-slab-light.woff");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/roboto-slab-bold.woff2"), url("../fonts/roboto-slab-bold.woff");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+/* Общие */
+body {
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+p {
+    font-weight: 400;
+}
+h1 {
+    
+    font-weight: 700;
+    
+    color: #fff;
+}
+header {
+    width: 100%;
+    height: 90px;
+    background-color: #b2d9f2;
+    box-shadow:0 10px 10px rgba(0, 0, 0, .1);
+}
+/* Добавочные свойства и фикс мелких багов */
+.margin {
+    margin: 10% 0;
+}
+.secmiddle {
+    background-color: #b2d9f2;
+}
+.secmiddleblack {
+    background-color: #262626;
+}
+.blue {
+    background-color: #b2d9f2;
+}
+.black {
+    background-color: #262626;
+}
+.blackspace {
+    height: 200px;
+    background-color: #262626;
+}
+.bluespace {
+    height: 200px;
+    background-color: #b2d9f2;
+}
+/* Предзагрузка */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+#preloader.hide-preloader {
+    animation: hidePreloader 1s;
+}
+#preloader.preloader-hidden {
+    display: none;
+}
+@keyframes hidePreloader {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Скроллер */
+.scrollup {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1000;
+    width: 65px;
+    height: 65px;
+    color: #fff;
+    cursor: pointer;
+    visibility: hidden;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 4px #fff, 0px 0px 35px #fa6908;
+    opacity: 0;
+    transition: .5s;
+    transform: translateY(25px);
+    
+}
+.scrollup::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    content: '↑';
+    transition: .2s;
+}
+.scrollup:hover {
+    color: #fa6908;
+    box-shadow:none;
+    transition: .5s;
+}
+.scrollup-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+.scrollup-svgpath {
+    box-sizing: border-box;
+    fill: none;
+    stroke: #fa6908;
+    stroke-width: 4px;
+    transition: .2s;
+}
+
+
+/* Меню */
+
+header .container {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+    color: #1d5e84;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 25px;
+    overflow: hidden;
+    transition: 0.2;
+    border-radius: 10px;
+}
+.brand_line {
+    position: absolute;
+    display: block;
+}
+.brand_line--top {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fa6908)
+}
+
+.brand:hover .brand_line--top {
+    left: 100%;
+    transition: 0.7s;
+    transition-delay: 0.25s;
+}
+
+.brand_line--bottom {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #fa6908)
+}
+
+.brand:hover .brand_line--bottom {
+    right: 100%;
+    transition: 0.7s;
+    transition-delay: 0.25s;
+}
+.brand_line--left {
+    bottom: -100%;
+    left: 0%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, #fa6908)
+}
+
+.brand:hover .brand_line--left {
+    bottom: 100%;
+    transition: 0.7s;
+    transition-delay: 0.25s;
+}
+.brand_line--right {
+    top: -100%;
+    right: 0%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #fa6908)
+}
+
+.brand:hover .brand_line--right {
+    top: 100%;
+    transition: 0.7s;
+    transition-delay: 0.25s;
+}
+.brand:hover {
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fa6908, 0 0 40px #fa6908;
+    background-color: #fa6908;
+    color: #333;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.wrap {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.menu {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    padding: 10px 0px;
+}
+
+.menu li{
+    display: inline-block;
+}
+.menu li .menu_link{
+    position: relative;
+    display: inline-block;
+    color: #061924;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 15px 10px 15px;
+    opacity: 0.6;
+    transition: all .2s ease-in-out;
+}
+.menu li .menu_link:hover{
+    opacity: 1;
+}
+.menu li .menu_link::before{
+    content: '';
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    background-color: #fa6908;
+    box-shadow: 0 0 10px #f5943b, 0 0 40px #f5943b;
+    transition: 0.4s;
+    border-radius: 30px;
+    
+}
+.menu li .menu_link:hover:before{
+    width: 100%;
+    left: 0;
+}
+.menu li .hovered::before {
+    content: '';
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    background-color: #fa6908;
+    box-shadow: 0 0 10px #f5943b, 0 0 40px #f5943b;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+.menu li .hovered:hover:before {
+    width: 100%;
+    left: 0;
+}
+
+
+.dropdown{
+    display:inline-block;
+    z-index: 100000;
+    position:relative;
+}
+
+.dropdown .dropmenu{
+    margin-top: 10px;
+    z-index: 100000;
+    border-radius: 20px;
+    background-color:#262626;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    z-index:1;
+    visibility:hidden;
+    position:absolute;
+    min-width:100%;
+    opacity:0;
+    transition:.3s;
+}
+
+.dropdown:hover .dropmenu{
+    visibility:visible;
+    z-index: 100000;
+    opacity:1;
+}
+
+.dropdown .dropmenu .droplink{
+    text-align: center;
+    display:block;
+    text-decoration:none;
+    padding:8px;
+    color:#fff;
+    transition:.1s;
+    white-space:nowrap;
+    z-index: 100000;
+}
+
+.dropdown .dropmenu .droplink:hover{
+    color:#f1731f;
+    z-index: 100000;
+}
+
+
+/* Обои для первого блока h1 параллакс   */
+.indexparallax {
+    background: url("../bg/newbg.jpg");
+}
+.multparallax {
+    background: url("../bg/multbg.jpg");
+}
+.historyparallax {
+    background: url("../bg/lampbg.png");
+}
+.historytoy{
+    background: url("../bg/historytoy.jpg");
+}
+.shortsparallax {
+    background: url("../bg/shortsbg.jpg");
+}
+.techparallax {
+    background: url("../bg/techbg.jpg");
+}
+.lucaparallax {
+    background: url("../bg/lucabg.jpg");
+}
+.soulparallax {
+    background: url("../bg/soulbg.jpg");
+}
+.onwardparallax {
+    background: url("../bg/onwardbg.jpg");
+}
+.toy4parallax {
+    background: url("../bg/toybg.jpg");
+}
+.hero2parallax {
+    background: url("../bg/herobg.jpg");
+}
+/* Первый блок h1 параллакс  */
+.parallax {
+    background-size:cover;
+    background-attachment: fixed;
+    height: 800px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+.parallax .mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    z-index: 2;
+    position: absolute;
+}
+.parallaxx {
+    background-size:cover;
+    background-attachment: fixed;
+    height: 800px;
+    position: relative;
+    
+}
+.lucalogo {
+    padding-top: 60px;
+    width: 45%;
+    z-index: 3;
+    transition: transform 0.5s;
+}
+.lucalogo:hover {
+    transform: scale(1.2);
+}
+.soullogo {
+    z-index: 3;
+    transition: transform 0.5s;
+}
+.toy4logo {
+    z-index: 3;
+    transition: transform 0.5s;
+    width: 40%;
+}
+.toy4logo:hover {
+    transform: scale(1.2);
+}
+.soullogo:hover {
+    transform: scale(1.2);
+}
+
+.lucacont {
+    padding-left: 100px;
+    z-index: 3;
+}
+.onwardcont {
+    z-index: 3;
+    padding-top: 150px;
+}
+.toy4cont {
+    z-index: 3;
+    padding-top: 100px;
+    position: absolute;
+    padding-left: 750px;
+    
+}
+
+.historyparallaxtoy {
+    background-size:cover;
+    background-attachment: fixed;
+    height: 450px;
+} 
+.h1container {
+    padding-top: 200px;
+    z-index: 3;
+}
+.subcont {
+    padding-top: 100px;
+}
+.parallax .h1shorts {
+    z-index: 3;
+}
+
+.h1index {
+    font-size: 250px;
+    letter-spacing: 100px;
+    transition: 0.5s;
+}
+.h1index:hover {
+    text-shadow: 0 0 10px #f5943b, 0 0 40px #f5943b;
+}
+.h1shorts {
+    padding-top: 50px;
+    font-family: 'Brushes';
+    font-weight: 700;
+    letter-spacing: 10px;
+    font-size: 170pt;
+    transition: 0.5s;
+    
+}
+.h1shorts:hover {
+    text-shadow: 0 0 10px #f5943b, 0 0 40px #f5943b;
+}
+.ppl {
+    text-align: center;
+    font-weight: 400;
+    font-size: 50px;
+    color: #fff;
+    letter-spacing: 3px;
+}
+/* Видеослайдер */
+.home {
+   position: relative;
+   width: 100%;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   background: #b2d9f2;
+}
+.home:before {
+    z-index: 7;
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.home .content {
+    padding-right: 500px;
+    z-index: 8;
+    color: #fff;
+    width: 70%;
+    margin-top: 50px;
+    display: none;
+}
+.home .content.active {
+    display: block;
+}
+.home .content .contenth1{
+    margin-top: 150px;
+    font-size: 110px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    margin-bottom: 40px;
+    line-height: 115px;
+    margin-left: 150px;
+    text-align: center;
+
+}
+.home .content .contentp {
+    text-align: center;
+    font-size: 25px;
+    word-spacing: -2px;
+    margin: 0 100px 200px 180px;
+}
+.home video {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500;
+    height: 100%;
+    object-fit: cover;
+
+}
+.slider-navigation {
+    
+    top: -250px;
+    z-index: 8;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(80px);
+    
+}
+.slider-navigation .nav-btn{
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease;
+
+}
+.slider-navigation .nav-btn.active {
+    background: #b2d9f2;
+}
+.slider-navigation .nav-btn:not(:last-child) {
+    margin-right: 40px;
+}
+.slider-navigation .nav-btn:hover {
+    transform: scale(1.2);
+}
+
+.video-slider {
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+.video-slider.active{
+    clip-path: circle(150% at 0 50%);
+    transition: 0.7s ease; 
+    transition-property: clip-path;
+}
+
+/* Второй блок */
+.info {
+    width: 100%;
+    min-height: 800px;
+    background-color: #262626;
+    
+}
+.info_content {
+    padding: 150px 0 150px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.info_header {
+    padding-top: 50px;
+    color: #f5943b;
+    font-weight: 700;
+    font-size: 55px;
+    margin-right: 150px;
+}
+.info_text {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 20pt;
+    line-height: 40px;
+    margin-right: 150px;
+    
+    
+}
+.info_img {
+    width: 100%;
+}
+/*описание */
+/* Третий блок в index */
+.middle_info {
+    color: #1d5e84;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    padding: 75px 200px 0 200px;
+    font-size: 20pt;
+    overflow: hidden;
+}
+/*футер ну или подвал */
+footer {
+    padding: 100px;
+    margin-top: auto;
+    background-color: #262626;
+}
+
+.cont_social {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.social{
+  color:#fff;
+  list-style:none;
+  padding:0;
+  display:flex;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.social-item{
+  height:70px;
+  width: 70px;
+  border-radius:50%;
+  border:5px solid #fff;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px; /*Размер иконки внутри*/
+  transition: all 1.5s;
+}
+
+.linka{
+  text-decoration: none;
+  color: inherit;
+}
+.facebook {
+    color: #fff;
+}
+.instagram {
+    color: #fff;
+}
+.telegram {
+    color: #fff;
+}
+.google {
+    color: #fff;
+}
+.facebook:hover{
+  border-color:#3c5998;
+  box-shadow:0px 0px 35px #3c5998;
+  color:#3c5998;
+}
+
+.instagram:hover{
+  box-shadow:0px 0px 35px ;
+  background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.telegram:hover{
+  border-color:#03A9F4;
+  box-shadow:0px 0px 35px #03A9F4;
+  color:#03A9F4;
+}
+
+
+.google:hover{
+  border-color:#ea4335;
+  box-shadow:0px 0px 35px #ea4335;
+  color:#ea4335;
+}
+
+/* hr*/
+
+.har{
+    padding: 25px 0 25px 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 20%;
+}
+.harwhite{
+    padding: 25px 0 25px 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 20%;
+    color: #fff;
+}
+.harlong{
+    padding: 25px 0 25px 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    color: #fff;
+}
+
+/* Последний блок в index */
+.worker {
+    padding: 0 250px 0 250px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.workerbox {
+    padding: 0 30px 0 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+    
+}
+.workerbox .workerimg {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    transition: transform 0.4s;
+    
+}
+.workerimg:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 0 4px #262626;
+
+}
+.worker_info {
+    padding: 0 350px 0 350px;
+    color: #262626;
+    font-weight: 400;
+    font-size: 20pt;
+    text-align: justify;
+    line-height: 35px;
+
+}
+.workerheader {
+    padding: 0 100px 0 100px;
+    color: #262626;
+    font-weight: 700;
+    font-size: 40pt;
+    text-align: center;
+    line-height: 35px;
+}
+/* h1 из mult*/
+.logoh1 {
+    padding-top: 50px;
+    font-family: 'Brushes';
+    font-weight: 700;
+    letter-spacing: 25px;
+    font-size: 150pt;
+    transition: 0.5s;
+    text-shadow: -5px 0 2px #333;
+}
+.logoh1:hover {
+    text-shadow: 0 0 10px #f5943b, 0 0 40px #f5943b;
+}
+/* 3д карточки и блоки mult */
+.multiki {
+    padding: 0 200px 0 200px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.imgmult3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    margin: 30px 60px 30px 60px;
+}
+.imgmult {
+    width: 350px;
+    height: 511px;
+    border-radius: 35px;
+    padding-right: auto;
+    padding-left: auto;
+    transition: transform 0.2s;
+}
+.amult{
+    text-decoration: none;
+}
+.pmult {
+    text-align: center;
+    color: #1d5e84;
+}
+.pmultwhite {
+    text-align: center;
+    color: #fff;
+}
+
+/* хед истории  */
+.h1history {
+    padding-top: 50px;
+    font-weight: 700;
+    letter-spacing: 25px;
+    font-size: 150pt;
+    transition: 0.5s;
+    z-index: 3;
+}
+.h1history:hover {
+    text-shadow: 0 0 10px #f5e23b, 0 0 40px #f5a23b;
+}
+
+/* Работа с заголовками и абзацами в основном на страничке history  */
+.manehead {
+    height: 200px;
+    font-weight: 700;
+    font-size: 35pt;
+    color: #f5a23b;
+    text-align: center;
+    padding-top: 70px;
+    background-color: #b2d9f2;
+    transition: 0.5s;
+    text-shadow: -3px 2px 1px #262626;
+}
+.manehead:hover {
+    color: #fff;
+    background-color: #262626;
+    text-shadow: -3px 2px 1px #f5a23b;
+}
+
+.historyinfo {
+    font-size: 15pt;
+    color:#fff;
+    text-align: justify;
+    line-height: 35px;
+    padding: 0 300px 0 300px;
+}
+
+.imghistory {
+    display: block;
+    margin: 0 auto;
+    padding: 100px 100px;
+    border-radius: 30%;
+    transition: transform 0.4s;
+}
+.imghistory:hover {
+    transform: scale(1.2);
+}
+
+/* Страница с технологиями  */
+.techhead {
+    height: 200px;
+    font-weight: 700;
+    font-size: 35pt;
+    color: #262626;
+    text-align: center;
+    padding-top: 70px;
+    background-color: #b2d9f2;
+    transition: 0.5s;
+}
+.article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.article-text {
+    padding-left: 100px;
+}
+.article-text-middle {
+    font-size: 25pt;
+
+}
+.article-textt-middle {
+    font-size: 23pt;
+
+}
+.bug1 {
+    padding: 0 100px 0 100px;
+}
+.article-img {
+    width: 40%;
+}
+.article-subtitle {
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 104px;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1.222;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #f5a23b;
+}
+.article-subtitle::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    content:'';
+    width: 72px;
+    height: 2px;
+    background-color: #f5a23b;
+}
+
+/* Вторые паралаксы на страничках с инфой и пятью мультами */
+.maintechparallax {
+    background: url("../bg/renderman.jpg");
+}
+.mainlucaparallax {
+    background: url("../bg/lucabg2.jpg");
+}
+.mainsoulparallax {
+    background: url("../bg/soulbg2.jpg");
+}
+.mainonwardparallax {
+    background: url("../bg/onwardbg2.jpg");
+}
+.maintoy4parallax {
+    background: url("../bg/toybg2.jpg");
+}
+.mainhero2parallax {
+    background: url("../bg/herobg2.jpg");
+}
+.parallaxtech {
+    background-size:cover;
+    background-attachment: fixed;
+    height: 800px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+.subtech {
+    padding: 50px 300px 0 300px;
+    font-weight: 700;
+    font-size: 30pt;
+    transition: 0.5s;
+    z-index: 3;
+    color: #fff;
+}
+.subonward {
+    padding: 50px 300px 0 300px;
+    font-weight: 700;
+    font-size: 27pt;
+    transition: 0.5s;
+    z-index: 3;
+    color: #fff;
+}
